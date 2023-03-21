@@ -4,9 +4,9 @@
     {
         static void Main(string[] args)
         {
-            Store shopOKSEI = new();
+            Store shopOKSEI = new(); // создаю магазинчик зовётся магазин окэи вот так вот ккруто
             #region 1stStoreProducts
-            List<Product> products = new List<Product>
+            List<Product> products = new List<Product> // массив для всех продуктов магазина 
             {
                 new Bread("Бородинский",30.0f,"Чёрный"),
                 new Bread("Солнечный", 28.0f, "Белый"),
@@ -26,10 +26,10 @@
 
             #region Customers
 
-            Client client1 = new() { Name = "Petor" };
-            Client client2 = new() { Name = "Vasiliy", AllPurchases = 3000 };
+            Client client1 = new() { Name = "Petor" }; // клиент только с именем 
+            Client client2 = new() { Name = "Vasiliy", AllPurchases = 3000 }; // клиент с доп указанием всех покупок
 
-            Console.WriteLine($"client: \t{client1.Name}\t{client1.AllPurchases}\n\t{client2.Name}\t{client2.AllPurchases}");
+            Console.WriteLine($"client: \n\t{client1.Name}\t{client1.AllPurchases}\n\t{client2.Name}\t{client2.AllPurchases}");
 
 
             #endregion
@@ -38,16 +38,17 @@
 
             #region Carts
 
-            shopOKSEI.SaveOrder(client1, products[0], products[2], products[4]);
-            shopOKSEI.SaveOrder(client2, products[1], products[3], products[5]);
-            shopOKSEI.SaveOrder(client1, products[0], products[1], products[5]);
+            shopOKSEI.SaveOrder(client1, products[0], products[2], products[4]); // клиент делает покупку с определенными товарами 
+            shopOKSEI.SaveOrder(client2, products[1], products[3], products[5]);// клиент делает покупку с определенными товарами 
+            shopOKSEI.SaveOrder(client1, products[0], products[1], products[5]);// клиент делает покупку с определенными товарами 
             Console.WriteLine("today operations is:");
             for (int i = 0;i<shopOKSEI.AllPurchases.Count;i++)
             {
-                Console.WriteLine(shopOKSEI.AllPurchases[i]);
+                Console.WriteLine(shopOKSEI.AllPurchases[i]); // добавляет клиентам к общей сумме потраченных средств средства за заказик
+                // ваще интересная строчка, этот оллпурчейс есть у store, но на самом деле берётся из order, где делаются всякие манипуляции хех
             }
 
-            Console.WriteLine($"in finally clients are having: \n\t{client1.Name}\t{client1.AllPurchases:f2}\n\t{client2.Name}\t{client2.AllPurchases:f2}");
+            Console.WriteLine($"in finally clients are having: \n\t{client1.Name}\t{client1.AllPurchases:f2}\n\t{client2.Name}\t{client2.AllPurchases:f2}"); 
 
             #endregion
         }

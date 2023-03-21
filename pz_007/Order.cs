@@ -19,15 +19,15 @@ namespace pz_007
 
             foreach (var item in a)
             {
-                Items.Add(item);
-                Buyer.AllPurchases += item.Price - item.Price * Product.GetDiscount(buyer);
+                Items.Add(item); 
+                Buyer.AllPurchases += item.Price - item.Price * Product.GetDiscount(buyer); // прибавляется общая сумма покупок от каждого сделанного заказа , по факту с этой формулой чем больше скидка, тем медленнее набирается новый этап скидки, чем если бы её не было
             }
 
         }
 
         public override string ToString()
         {
-            return $"{Buyer.Name}:\n\t{string.Join('-', Items.Select(x => x.Name))}";
+            return $"{Buyer.Name}:\n\t{string.Join('-', Items.Select(x => x.Name))}"; // заказы клиента
         }
     }
 }

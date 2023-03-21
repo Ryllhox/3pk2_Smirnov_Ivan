@@ -9,6 +9,6 @@ namespace pz_007
     public class Client
     {
         public string Name { get; set; }
-        public double AllPurchases { get; set; }
+        public double AllPurchases { get; set; } // общая сумма покупок клиента
     }
 }

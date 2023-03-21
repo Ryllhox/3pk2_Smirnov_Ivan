@@ -17,7 +17,7 @@ namespace pz_007
             Price = price;
         }
 
-        public static float GetDiscount(Client x)
+        public static float GetDiscount(Client x) // выдача скидки условия понятны и просты по значениям
         {
             if (x.AllPurchases == 0) return 0.1f;
             else if (x.AllPurchases > 20_000) return 0.15f;
