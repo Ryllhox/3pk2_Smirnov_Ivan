@@ -1,0 +1,56 @@
+﻿<Window x:Class="pz_010.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pz_010"
+        mc:Ignorable="d"
+        Title="notepad (mini)" Loaded="Window_Loaded" Height="450" Width="800" Background="AliceBlue" WindowStyle="ToolWindow" ResizeMode="NoResize">
+    <Grid>
+        <!--<Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            
+        </Grid.RowDefinitions>-->
+    
+        <DockPanel>
+            <Menu x:Name="menu" DockPanel.Dock="Top" Margin="5">
+                <MenuItem Header="File">
+                    <MenuItem Header="Save as" Click="MenuItem_Click_Save"/>
+                    <MenuItem Header="Exit" Click="MenuItem_Click"/>
+                </MenuItem>
+                <MenuItem Header="Edit">
+                    <!--<MenuItem Header="Font size">
+                        <MenuItem Header="16"/>
+                        <MenuItem Header="18"/>
+                        <MenuItem Header="20"/>
+                    </MenuItem>-->
+                    <MenuItem Header="Style">
+                        <MenuItem Header="Bold" FontWeight="Bold" Click="MenuItem_Click_Bold"/>
+                        <MenuItem Header="Italic" FontStyle="Italic" Click="MenuItem_Click_Italic"/>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+
+            <DockPanel DockPanel.Dock="top">
+                <TextBlock Text="FONT SIZE " Margin="20,0,0,0" HorizontalAlignment="Center" />
+                <ComboBox x:Name="newFontSize" HorizontalAlignment="Left" Margin="20,0,0,0" SelectionChanged="newFontSize_SelectionChanged"/>
+
+            </DockPanel>            
+
+            <RichTextBox x:Name="textBox" Margin="25" Grid.Row="1" Grid.ColumnSpan="2" FontSize="14" >
+                <RichTextBox.Effect>
+                    <DropShadowEffect BlurRadius="15" ShadowDepth="1" Direction="10" Opacity="1" RenderingBias="Performance" />
+                </RichTextBox.Effect>
+                <FlowDocument/>
+            </RichTextBox>
+        </DockPanel>
+
+        <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="IN" Height="35" Width="35" Margin="0,0,45,0" Click="Button_Click_in"/>
+        <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="OUT" Height="35" Width="35" Click="Button_Click_out"/>
+    </Grid>
+</Window>
